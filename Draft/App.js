@@ -3,12 +3,14 @@ import { Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Demo from './src/firebase/FirebaseDemo.js'
 
 const HomeScreen = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text STYLE="font-size:30px">Home!</Text>
-    </View>
+    <Demo></Demo>
+    // <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    //   <Text STYLE="font-size:30px">Home!</Text>
+    // </View>
   );
 }
 

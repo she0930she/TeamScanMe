@@ -1,2 +1,3 @@
-Draft/node_modules/
+Draft/node_modules/*
 Draft/yarn.lock
+Draft/.expo/*

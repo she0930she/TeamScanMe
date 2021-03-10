@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { firebase } from './config';
 
-// I use yarn to manage libraries, if you use npm, you should delete the package-lock.json file and npm install again
+// run yarn add firebase (if you are not using yarn, try npm)
 // if you encounter the problem "Tried to register two views in the same name RNCSafeAreaProvider"
 // run expo install react-native-safe-area-context
 // run yarn or npm install
