@@ -39,9 +39,10 @@ export default function Demo(props) {
 
     //  Upload image
     const uploadImage = async(uri) => {
+        const fileName = uri.split('/').pop();
         const response = await fetch(uri);
         const blob = await response.blob();
-        firebaseUtil.uploadImage(setImage.bind(this), blob);
+        firebaseUtil.uploadImage(setImage.bind(this), fileName, blob);
     }
 
     // Alert the current URL

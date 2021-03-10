@@ -14,8 +14,8 @@ const jsonRef = firebase.firestore().collection('json');
 
 const firebaseUtil = {
 
-    uploadImage: (setImage, blob) => {
-      const imageRef = storageRef.child('images');
+    uploadImage: (setImage, fileName, blob) => {
+      const imageRef = storageRef.child(fileName);
       const uploadTask = imageRef.put(blob);
       uploadTask.on(
         'state_changed',
