@@ -7,10 +7,9 @@ import Demo from './src/firebase/FirebaseDemo.js'
 
 const HomeScreen = () => {
   return (
-    <Demo></Demo>
-    // <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    //   <Text STYLE="font-size:30px">Home!</Text>
-    // </View>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text STYLE="font-size:30px">Home!</Text>
+    </View>
   );
 }
 
@@ -57,6 +56,12 @@ const WhyScreen = () => {
   );
 }
 
+const FireBaseScreen = () => {
+  return (
+    <Demo></Demo>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -96,6 +101,12 @@ export default function App() {
               ? 'ios-person' 
               : 'ios-person-outline';
             }
+
+            if (route.name === 'Firebase') {
+              iconName = focused 
+              ? 'ios-person' 
+              : 'ios-person-outline';
+            }
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
@@ -110,6 +121,7 @@ export default function App() {
         <Tab.Screen name="Scan" component={ScanScreen} />
         <Tab.Screen name="History" component={HistoryScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="Firebase" component={FireBaseScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
