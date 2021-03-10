@@ -104,8 +104,8 @@ export default function App() {
 
             if (route.name === 'Firebase') {
               iconName = focused 
-              ? 'ios-person' 
-              : 'ios-person-outline';
+              ? 'ios-logo-firebase' 
+              : 'ios-logo-firebase';
             }
             // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;

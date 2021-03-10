@@ -32,5 +32,14 @@ export default StyleSheet.create({
     listText: {
         fontSize: 16,
         paddingLeft: 5
-    }
+    },
+    clearButton: {
+        height: 47,
+        borderRadius: 5,
+        backgroundColor: '#788eec',
+        alignSelf: 'stretch',
+        alignItems: "center",
+        justifyContent: 'center',
+        margin:5
+    },
 })

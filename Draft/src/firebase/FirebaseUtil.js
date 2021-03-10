@@ -10,19 +10,28 @@ import { firebase } from './config';
 const storageRef = firebase.storage().ref();
 
 // Create a firestore reference from the firestore service
-const jsonRef = firebase.firestore().collection('json')
+const jsonRef = firebase.firestore().collection('json');
 
 const firebaseUtil = {
 
-    uploadImage: () => {
-      const spaceRef = storageRef.child('images/space.jpg');
-      spaceRef.put(file).then((snapshot) => {
-        alert('Uploaded an image file!');
-      });
-    },
-
-    getImage: () => {
-      return 0;
+    uploadImage: (setImage, blob) => {
+      const imageRef = storageRef.child('images');
+      const uploadTask = imageRef.put(blob);
+      uploadTask.on(
+        'state_changed',
+        (snapshot) => {
+          // Observe state change events such as progress, pause, and resume
+        },
+        (error) => {
+          // error
+        },
+        () => {
+          // success
+          uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+            setImage(downloadURL);
+          });
+        }
+      );
     },
 
     saveJsonData: (id, jsondata) => {
@@ -45,7 +54,7 @@ const firebaseUtil = {
             alert("No such document!");
           }
         }).catch((error) => {
-          console.log("Error getting document:", error);
+          alert("Error getting document:", error);
         });
     }
 }
