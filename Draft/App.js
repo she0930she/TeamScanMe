@@ -10,8 +10,11 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import ScoreScreen from "./src/screens/ScoreScreen";
 import CamaraScreen from "./src/screens/CamaraScreen";
-import HistoryScreen from "./src/firebase/FirebaseDemo";
 import WhyScreen from './src/screens/WhyScreen.js';
+import HistoryScreen from "./src/screens/HistoryScreen.js";
+// firebase demo view, it helps use firebase
+// import HistoryScreen from "./src/firebase/FirebaseDemo";
+
 
 // const navigator = createStackNavigator(
 //   {
