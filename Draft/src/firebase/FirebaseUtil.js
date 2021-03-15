@@ -56,6 +56,25 @@ const firebaseUtil = {
         }).catch((error) => {
           alert("Error getting document:", error);
         });
+    },
+
+    getHistoryData: (setJsonData, id) => {
+      jsonRef
+        .doc(id)
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            setJsonData({
+              data: doc.data().data,
+              refreshing:false
+            })
+
+          } else {
+            alert("No such document!");
+          }
+        }).catch((error) => {
+          alert("Error getting document:", error);
+        });
     }
 }
 

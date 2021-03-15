@@ -83,119 +83,6 @@ const styles = StyleSheet.create({
     }
   });
 
-const DATA = [
-    {
-        date:"March 03, 2021",
-        data: [
-            {
-                image_url: "ken",
-                score: 100.0,
-                star: ["star","star","star"],
-                reason: "Reason"
-            },
-            {
-                image_url: "Amanda",
-                score: 80.5,
-                star: ["star","star"],
-                reason: "Reason2"
-            },
-            {
-                image_url: "Lakshya",
-                score: 60.3,
-                star: ["star"],
-                reason: "Reason3"
-            },
-            {
-                image_url: "Brian",
-                score: 59.9,
-                star: ["star","star","star"],
-                reason: "Reason4"
-            }
-        ]
-    },
-    {
-        date:"March 04, 2021",
-        data: [
-            {
-                image_url: "ken",
-                score: 100.0,
-                star: ["star"],
-                reason: "Reason"
-            },
-            {
-                image_url: "Amanda",
-                score: 80.5,
-                star: ["star","star"],
-                reason: "Reason2"
-            },
-            {
-                image_url: "Lakshya",
-                score: 60.3,
-                star: ["star","star","star"],
-                reason: "Reason3"
-            },
-            {
-                image_url: "Brian",
-                score: 59.9,
-                star: ["star","star","star","star"],
-                reason: "Reason4"
-            }
-        ]
-    },
-    {
-        date:"March 05, 2021",
-        data: [
-            {
-                image_url: "ken",
-                score: 100.0,
-                star: ["star","star","star"],
-                reason: "Reason"
-            },
-            {
-                image_url: "Amanda",
-                score: 80.5,
-                star: ["star","star","star"],
-                reason: "Reason2"
-            },
-            {
-                image_url: "Lakshya",
-                score: 60.3,
-                star: ["star","star","star"],
-                reason: "Reason3"
-            },
-            {
-                image_url: "Brian",
-                score: 59.9,
-                star: ["star","star","star"],
-                reason: "Reason4"
-            }
-        ]
-    },
-    {
-        date:"March 06, 2021",
-        data: [
-            {
-                image_url: "ken",
-                score: 100.0,
-                star: ["star","star","star"],
-                reason: "Reason"
-            },
-            {
-                image_url: "Amanda",
-                score: 80.5,
-                star: ["star","star","star"],
-                reason: "Reason2"
-            },
-            {
-                image_url: "Lakshya",
-                score: 60.3,
-                star: ["star","star","star"],
-                reason: "Reason3"
-            }
-        ]
-    }
-];
-
 const Item = ({ detail, index }) => (
     <View style={index%2 === 0? styles.row_odd: styles.row_even}>
       <Text style={styles.item_pic}>
@@ -207,7 +94,7 @@ const Item = ({ detail, index }) => (
       <Text style={styles.item_star}>
             {
                 detail.star.map(() => {
-                        return(<Image style={styles.image_star}
+                        return(<Image keyExtractor={index} style={styles.image_star}
                             source={require('../images/star_filled.png')}
                         />);
                     }
@@ -219,42 +106,56 @@ const Item = ({ detail, index }) => (
 
 // When using SectionList, renderItem use specific key "data" as item. 
 // So make sure the name in your object is named "data"
-function HistoryView(props){
+class HistoryView extends Component{
 
-    const [data, setData] = useState({});
+    constructor(props){
+        super(props);
+        this.state = {
+            refreshing:false
+        }
+        const userID = 'history';
+        firebaseUtil.getHistoryData(this.setState.bind(this), userID);
+    }
 
-    // useEffect(() => {
-    //     (async () => {
-    //         const userID = 'Ken';
-    //         firebaseUtil.getJsonData(setData.bind(this), userID);
-    //         alert(data);
-    //     })();
-    // }, []);
+    onRefresh(){
+        this.setState({
+            refreshing:true
+        })
+        const userID = 'history';
+        firebaseUtil.getHistoryData(this.setState.bind(this), userID);
+    }
 
-    return (
-        <SafeAreaView style={styles.container}>
-            <View style={styles.title_container}>
-                <Text style={styles.title}>
-                    Your Scan Records
-                </Text>
-            </View>
-            <SectionList
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
-                sections={DATA}
-                keyExtractor={(item, index) => item + index}
-                renderItem={
-                    ({ item, index}) => <Item detail={item} index={index}/>
+    render(){
+        return (
+            <SafeAreaView style={styles.container}>
+                <View style={styles.title_container}>
+                    <Text style={styles.title}>
+                        Your Scan Records
+                    </Text>
+                </View>
+                {this.state.data &&(
+                       <SectionList
+                            jshowsVerticalScrollIndicator={false}
+                            showsHorizontalScrollIndicator={false}
+                            sections={this.state.data}
+                            keyExtractor={(item, index) => item + index}
+                            renderItem={
+                                ({ item, index}) => <Item detail={item} index={index}/>
+                            }
+                            renderSectionHeader={({ section: { date } }) => (
+                                <View style={styles.header}>
+                                    <Text style={styles.header_text}>{date}</Text>
+                                </View>
+                            )}
+                            onRefresh={() => this.onRefresh()}
+  	                        refreshing={this.state.refreshing}
+                        />   
+                    )
                 }
-                renderSectionHeader={({ section: { date } }) => (
-                    <View style={styles.header}>
-                        <Text style={styles.header_text}>{date}</Text>
-                    </View>
-                )}
-            />
-        </SafeAreaView>
-    );    
-    
+                
+            </SafeAreaView>
+        ); 
+    }
 }
 
 export default HistoryView;

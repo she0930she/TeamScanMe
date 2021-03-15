@@ -56,15 +56,119 @@ export default function Demo(props) {
 
     // Save data to firestore
     const saveJsonData = () => {
-        const userID = 'Ken';
-        const jsonData = {
-            name: "Ken Lu", 
-            gender: "Male", 
-            country: "TWN",
-            hasCar: false, 
-            height: 180,
-            interests: ["hiking", "traveling"]
-        };
+        const userID = 'history';
+        const jsonData = {data:[
+            {
+                date:"March 03, 2021",
+                data: [
+                    {
+                        image_url: "ken",
+                        score: 100.0,
+                        star: ["star","star","star"],
+                        reason: "Reason"
+                    },
+                    {
+                        image_url: "Amanda",
+                        score: 80.5,
+                        star: ["star","star"],
+                        reason: "Reason2"
+                    },
+                    {
+                        image_url: "Lakshya",
+                        score: 60.3,
+                        star: ["star"],
+                        reason: "Reason3"
+                    },
+                    {
+                        image_url: "Brian",
+                        score: 59.9,
+                        star: ["star","star","star"],
+                        reason: "Reason4"
+                    }
+                ]
+            },
+            {
+                date:"March 04, 2021",
+                data: [
+                    {
+                        image_url: "ken",
+                        score: 100.0,
+                        star: ["star"],
+                        reason: "Reason"
+                    },
+                    {
+                        image_url: "Amanda",
+                        score: 80.5,
+                        star: ["star","star"],
+                        reason: "Reason2"
+                    },
+                    {
+                        image_url: "Lakshya",
+                        score: 60.3,
+                        star: ["star","star","star"],
+                        reason: "Reason3"
+                    },
+                    {
+                        image_url: "Brian",
+                        score: 59.9,
+                        star: ["star","star","star","star"],
+                        reason: "Reason4"
+                    }
+                ]
+            },
+            {
+                date:"March 05, 2021",
+                data: [
+                    {
+                        image_url: "ken",
+                        score: 100.0,
+                        star: ["star","star","star"],
+                        reason: "Reason"
+                    },
+                    {
+                        image_url: "Amanda",
+                        score: 80.5,
+                        star: ["star","star","star"],
+                        reason: "Reason2"
+                    },
+                    {
+                        image_url: "Lakshya",
+                        score: 60.3,
+                        star: ["star","star","star"],
+                        reason: "Reason3"
+                    },
+                    {
+                        image_url: "Brian",
+                        score: 59.9,
+                        star: ["star","star","star"],
+                        reason: "Reason4"
+                    }
+                ]
+            },
+            {
+                date:"March 06, 2021",
+                data: [
+                    {
+                        image_url: "ken",
+                        score: 100.0,
+                        star: ["star","star","star"],
+                        reason: "Reason"
+                    },
+                    {
+                        image_url: "Amanda",
+                        score: 80.5,
+                        star: ["star","star","star"],
+                        reason: "Reason2"
+                    },
+                    {
+                        image_url: "Lakshya",
+                        score: 60.3,
+                        star: ["star","star","star"],
+                        reason: "Reason3"
+                    }
+                ]
+            }
+        ]};
         firebaseUtil.saveJsonData(userID, jsonData);
     }
 
