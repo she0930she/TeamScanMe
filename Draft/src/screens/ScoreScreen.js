@@ -1,22 +1,23 @@
 import React from "react";
 import { Text, StyleSheet, View, TouchableOpacity, Navigator } from "react-native";
-
+import ModalWhy from "./ModalWhy"
 
 
 const ScoreScreen = ({ navigation }) => {
   const score = '50';
 
   return (
-    
+
     <View style={styles.container}>
       <Text style={styles.textStyle}>Your Score is</Text>
       <Text style={styles.scoreStyle}>{score}</Text>
       <Text style={styles.textStyle}>out of 100</Text>
-      <TouchableOpacity>
+      <ModalWhy />
+      {/* <TouchableOpacity>
         <Text style={styles.buttonStyle}>Why?</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
-  );  
+  );
 }
 
 const styles = StyleSheet.create({
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     color: '#352AFA'
   }
 
-  
+
 });
 
 export default ScoreScreen;
