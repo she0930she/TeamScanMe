@@ -55,7 +55,7 @@ class HistoryView extends Component{
                 </View>
                 {this.state.data &&(
                        <SectionList
-                            jshowsVerticalScrollIndicator={false}
+                            showsVerticalScrollIndicator={false}
                             showsHorizontalScrollIndicator={false}
                             sections={this.state.data}
                             keyExtractor={(item, index) => item + index}
@@ -72,7 +72,6 @@ class HistoryView extends Component{
                         />   
                     )
                 }
-                
             </SafeAreaView>
         ); 
     }
