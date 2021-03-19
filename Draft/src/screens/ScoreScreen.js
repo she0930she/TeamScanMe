@@ -31,9 +31,11 @@ const styles = StyleSheet.create({
     fontSize: 20
   },
   bottomtextStyle: {
+    padding: 10,
     fontSize: 20
   },
   scoreStyle: {
+    paddingTop: 10,
     fontSize: 100,
     color: '#26FA02'
   },
