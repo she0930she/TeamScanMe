@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, Dimensions, View, TouchableOpacity, Alert, Pressable, SafeAreaView} from 'react-native';
-import firebaseUtil from '../firebase/FirebaseUtil';
+import { StyleSheet, Text, Dimensions, View, TouchableOpacity, Alert, SafeAreaView} from 'react-native';
 import { Camera } from "expo-camera";
+import firebaseUtil from '../firebase/FirebaseUtil.js';
 
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 const captureSize = Math.floor(WINDOW_HEIGHT * 0.09);
@@ -46,7 +46,7 @@ export default function CamaraScreen() {
             [
               { 
                 text: "View Results", 
-                onPress: () => console.log("Results viewed") 
+                onPress: () =>  {console.log('Results viewed')}
               },
               {
                 text: "Cancel",
