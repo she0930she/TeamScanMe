@@ -41,8 +41,8 @@ class HistoryView extends Component{
                     <Text style={styles.item_score}>{detail.score}</Text>
                     <Text style={styles.item_star}>
                     {
-                        detail.star.map(() => {
-                            return(<Image keyExtractor={index} style={styles.image_star}
+                        detail.star.map((item, i) => {
+                            return(<Image key={i + index} keyExtractor={index} style={styles.image_star}
                                 source={require('../images/star_filled.png')}
                                 />);
                                 }
@@ -57,13 +57,6 @@ class HistoryView extends Component{
     render(){
         return (
             <SafeAreaView style={styles.container}>
-                <View>
-                    <TouchableOpacity onPress={()=>{
-                            this.props.navigation.navigate('Score', { history: 'COol' })
-                        }}>
-                        <Text>CLICK</Text>
-                    </TouchableOpacity>
-                </View>
                 <View style={styles.title_container}>
                     <Text style={styles.title}>
                         Your Scan Records

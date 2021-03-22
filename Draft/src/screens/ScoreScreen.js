@@ -32,7 +32,7 @@ class ScoreScreen extends Component{
   }
 
   getScoreView = () => {
-    if(this.props.route.params.history != null){
+    if(this.props.route.params){
       return(
         <View>
           <Image style={styles.image} source={{uri: this.props.route.params.history.image_url}}/>
@@ -43,13 +43,15 @@ class ScoreScreen extends Component{
         </View>
       )
     }else{
-      <View>
-          {this.getImageUrl()}
-          <Text style={styles.headtextStyle}>Your Score is</Text>
-          <Text style={styles.scoreStyle}>{this.getScore()}</Text>
-          <Text style={styles.bottomtextStyle}>out of 100</Text>
-          <ModalWhy reason={this.getReason()}/>
-      </View>
+      return(
+        <View>
+            {this.getImageUrl()}
+            <Text style={styles.headtextStyle}>Your Score is</Text>
+            <Text style={styles.scoreStyle}>{this.getScore()}</Text>
+            <Text style={styles.bottomtextStyle}>out of 100</Text>
+            <ModalWhy reason={this.getReason()}/>
+        </View>
+      )
     }
   }
 
