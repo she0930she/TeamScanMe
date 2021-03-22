@@ -25,6 +25,7 @@ class ModalWhy extends Component{
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         <View style={{ width: 300, height: 400 }}>
+                            <Text style={styles.headerStyle}>Detail:</Text>
                             <Text style={styles.modalText}>{this.props.reason}</Text>
                             <Pressable
                                 style={[styles.button, styles.buttonClose]}
@@ -56,9 +57,9 @@ const styles = StyleSheet.create({
     },
     modalView: {
         margin: 20,
-        backgroundColor: "white",
+        backgroundColor: "#FAEBF2",
         borderRadius: 20,
-        padding: 35,
+        padding: 25,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
         // elevation: 2
     },
     buttonOpen: {
-        backgroundColor: "#E65236",
+        backgroundColor: "#2196F3",
     },
     buttonClose: {
         backgroundColor: "#2196F3",
@@ -92,12 +93,15 @@ const styles = StyleSheet.create({
     },
     whyStyle: {
         fontSize: 20,
-        // margin: 80,
     },
     closeStyle: {
         fontSize: 20,
         textAlign: "center",
         color: "white"
+    },
+    headerStyle: {
+        paddingBottom: 15,
+        fontSize: 20,
     }
 });
 
