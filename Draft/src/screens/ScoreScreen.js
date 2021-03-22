@@ -2,33 +2,56 @@ import React, { useState, useEffect, Component } from "react";
 import { Text, Image, StyleSheet, View, TouchableOpacity, Navigator } from "react-native";
 import ModalWhy from "./ModalWhy"
 import firebaseUtil from '../firebase/FirebaseUtil.js'
+import { useIsFocused } from '@react-navigation/native';
 
 class ScoreScreen extends Component{
 
   constructor(props){
     super(props);
     this.state = {
-
+      // data:this.props.data.data
     }
     const userID = 'history';
     firebaseUtil.getHistoryData(this.setState.bind(this), userID);
+    this.props.navigation.addListener(
+      'didFocus',
+      payload => {
+        alert('didBlur');
+      }
+    );
   }
+
+  componentDidMount() {
+    this.props.navigation.addListener(
+      'focus',
+      payload => {    
+        firebaseUtil.getHistoryData(this.setState.bind(this), 'history');
+      }
+    );
+  }
+
+  // componentWillUnmount() {
+  //   this._unsubscribe();
+  // }
 
   getImageUrl = () => {
     let data = this.state.data; 
+    let length = data[0].data.length-1;
     return(
-      <Image style={styles.image} source={{uri: data[0].data[0].image_url}}/>
+      <Image style={styles.image} source={{uri: data[0].data[length].image_url}}/>
     );
   }
 
   getScore = () => {
     let data = this.state.data; 
-    return data[0].data[0].score;
+    let length = data[0].data.length-1;
+    return data[0].data[length].score;
   }
 
   getReason = () => {
     let data = this.state.data; 
-    return data[0].data[0].reason;
+    let length = data[0].data.length-1;
+    return data[0].data[length].reason;
   }
 
   getScoreView = () => {
@@ -54,6 +77,7 @@ class ScoreScreen extends Component{
   }
 
   render(){
+    const { isFocused } = this.props;
     return(
       <View style={styles.container}>
         {this.state.data &&(
@@ -63,6 +87,21 @@ class ScoreScreen extends Component{
     )
   }
 }
+
+export default ScoreScreen;
+
+// function(props) {
+//   const isFocused = useIsFocused();
+//   const [data, setData] = useState({});
+//   React.useEffect(() => {
+//     const unsubscribe = props.navigation.addListener('focus', () => {
+//       firebaseUtil.getHistoryData(setData.bind(this), "history");
+//       alert(JSON.stringify(data))
+//     });
+//     return unsubscribe;
+//   }, [props.navigation]);
+//   return <ScoreScreen {...props} data={data} isFocused={isFocused} />;
+// }
 
 const styles = StyleSheet.create({
   container: {
@@ -93,5 +132,3 @@ const styles = StyleSheet.create({
   },
 
 });
-
-export default ScoreScreen;

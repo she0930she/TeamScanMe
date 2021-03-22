@@ -29,9 +29,81 @@ const firebaseUtil = {
           // success
           uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
             setImage(downloadURL);
+            firebaseUtil.uploadJsonData(downloadURL);
           });
         }
       );
+    },
+
+    uploadJsonData: (downloadURL) => {
+      jsonRef
+        .doc("history")
+        .get()
+        .then((doc) => {
+          if (doc.exists) {
+            let data = doc.data().data;
+
+            //Create new product
+            let score =  Math.floor(Math.random() * (100 - 60 + 1) ) + 60;
+            let star = [];
+            if(score <= 100 && score > 90){
+              star = ["star","star","star","star"];
+            }else if(score <= 90 && score > 80){
+              star = ["star","star","star"];
+            }else if(score <= 80 && score > 70){
+              star = ["star","star"];
+            }else{
+              star = ["star"];
+            }
+            let newProduct = {
+              image_url:downloadURL,
+              reason:"",
+              score: score,
+              star:star
+            };
+
+            // Create new date
+            let newDate = new Date();
+            let dd = newDate.getDate();
+            let mm = newDate.getMonth()+1; 
+            let yyyy = newDate.getFullYear();
+            if(dd<10) 
+            {
+                dd='0'+dd;
+            } 
+            if(mm<10) 
+            {
+                mm='0'+mm;
+            } 
+            let dateString = mm + "-" + dd + ", " + yyyy;
+
+            // Check date
+            if(data[data.length-1].date === dateString){
+              data[data.length-1].data.push(newProduct);
+            }else{
+              data.push({
+                date:dateString,
+                data:[newProduct]
+              });
+            }
+
+            // Update history
+            jsonRef
+              .doc("history")
+              .set({data:data})
+              .then(() => {
+                alert('Success!');
+              });
+
+          } else {
+            alert("No such document!");
+          }
+        }).catch((error) => {
+          alert("Error getting document:", error);
+        });
+
+        
+
     },
 
     saveJsonData: (id, jsondata) => {
@@ -65,9 +137,10 @@ const firebaseUtil = {
         .then((doc) => {
           if (doc.exists) {
             setJsonData({
-              data: doc.data().data,
+              data: doc.data().data.reverse(),
               refreshing:false
-            })          } else {
+            })          
+          } else {
             alert("No such document!");
           }
         }).catch((error) => {
