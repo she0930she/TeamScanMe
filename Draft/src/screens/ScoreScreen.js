@@ -36,9 +36,8 @@ class ScoreScreen extends Component{
       return(
         <View>
           <Image style={styles.image} source={{uri: this.props.route.params.history.image_url}}/>
-          <Text style={styles.headtextStyle}>Your Score is</Text>
+          <Text style={styles.headtextStyle}>Score</Text>
           <Text style={styles.scoreStyle}>{this.props.route.params.history.score}</Text>
-          <Text style={styles.bottomtextStyle}>out of 100</Text>
           <ModalWhy reason={this.props.route.params.history.reason}/>
         </View>
       )
@@ -46,9 +45,8 @@ class ScoreScreen extends Component{
       return(
         <View>
             {this.getImageUrl()}
-            <Text style={styles.headtextStyle}>Your Score is</Text>
+            <Text style={styles.headtextStyle}>Score</Text>
             <Text style={styles.scoreStyle}>{this.getScore()}</Text>
-            <Text style={styles.bottomtextStyle}>out of 100</Text>
             <ModalWhy reason={this.getReason()}/>
         </View>
       )
@@ -59,12 +57,7 @@ class ScoreScreen extends Component{
     return(
       <View style={styles.container}>
         {this.state.data &&(
-          <View>
-            {this.getImageUrl()}
-            <Text style={styles.headtextStyle}>Score</Text>
-            <Text style={styles.scoreStyle}>{this.getScore()}</Text>
-            <ModalWhy reason={this.getReason()}/>
-          </View>
+          this.getScoreView()
         )}
       </View>
     )
@@ -91,6 +84,7 @@ const styles = StyleSheet.create({
   scoreStyle: {
     textAlign: "center",
     fontSize: 120,
+    fontWeight:"bold",
     color: '#00BF20'
   },
   image: {
