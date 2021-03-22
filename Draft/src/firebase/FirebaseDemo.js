@@ -182,6 +182,7 @@ export default function Demo(props) {
     const clearImage = () => {
         setImage()
     }
+    
     // clean the jason
     const clearJsonData = () => {
         setJsonData({})

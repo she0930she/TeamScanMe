@@ -1,20 +1,51 @@
-import React from "react";
-import { Text, StyleSheet, View, TouchableOpacity, Navigator } from "react-native";
+import React, { useState, useEffect, Component } from "react";
+import { Text, Image, StyleSheet, View, TouchableOpacity, Navigator } from "react-native";
 import ModalWhy from "./ModalWhy"
+import firebaseUtil from '../firebase/FirebaseUtil.js'
 
+class ScoreScreen extends Component{
 
-const ScoreScreen = ({ navigation }) => {
-  const score = '80';
+  constructor(props){
+    super(props);
+    this.state = {
 
-  return (
+    }
+    const userID = 'history';
+    firebaseUtil.getHistoryData(this.setState.bind(this), userID);
+  }
 
-    <View style={styles.container}>
-      <Text style={styles.headtextStyle}>Your Score is</Text>
-      <Text style={styles.scoreStyle}>{score}</Text>
-      <Text style={styles.bottomtextStyle}>out of 100</Text>
-      <ModalWhy />
-    </View>
-  );
+  getImageUrl = () => {
+    let data = this.state.data; 
+    return(
+      <Image style={styles.image} source={{uri: data[0].data[0].image_url}}/>
+    );
+  }
+
+  getScore = () => {
+    let data = this.state.data; 
+    return data[0].data[0].score;
+  }
+
+  getReason = () => {
+    let data = this.state.data; 
+    return data[0].data[0].reason;
+  }
+
+  render(){
+    return(
+      <View style={styles.container}>
+        {this.state.data &&(
+          <View>
+            {this.getImageUrl()}
+            <Text style={styles.headtextStyle}>Your Score is</Text>
+            <Text style={styles.scoreStyle}>{this.getScore()}</Text>
+            <Text style={styles.bottomtextStyle}>out of 100</Text>
+            <ModalWhy reason={this.getReason()}/>
+          </View>
+        )}
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -38,6 +69,10 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: 100,
     color: '#26FA02'
+  },
+  image: {
+    width: 200,
+    height: 200
   },
 
 });

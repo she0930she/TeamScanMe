@@ -1,42 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, Component } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
-const ModalWhy = () => {
-    const [modalVisible, setModalVisible] = useState(false);
-    return (
-        <View style={styles.centeredView}>
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => {
-                    Alert.alert("Modal has been closed.");
-                    setModalVisible(!modalVisible);
-                }}
-            >
+class ModalWhy extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            modalVisible:false
+        }
+    }
+
+    render(){
+        return(
+            <View style={styles.centeredView}>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalVisible}
+                    onRequestClose={() => {
+                        Alert.alert("Modal has been closed.");
+                        (!this.state.modalVisible);
+                    }}
+                >
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
                         <View style={{ width: 300, height: 400 }}>
-                            <Text style={styles.modalText}>The reason is: This food is too fat!!</Text>
+                            <Text style={styles.modalText}>{this.props.reason}</Text>
                             <Pressable
                                 style={[styles.button, styles.buttonClose]}
-                                onPress={() => setModalVisible(!modalVisible)}
+                                onPress={() => this.setState({modalVisible:!this.state.modalVisible})}
                             >
-                                <Text style={styles.closeStyle}>close</Text>
+                            <Text style={styles.closeStyle}>close</Text>
                             </Pressable>
                         </View>
                     </View>
                 </View>
-            </Modal>
-            <Pressable
-                style={[styles.button, styles.buttonOpen, styles.whyStyle]}
-                onPress={() => setModalVisible(true)}
-            >
-                <Text style={styles.textStyle}>Why</Text>
-            </Pressable>
-        </View>
-    );
-};
+                </Modal>
+                <Pressable
+                    style={[styles.button, styles.buttonOpen, styles.whyStyle]}
+                    onPress={() => this.setState({modalVisible:true})}
+                >
+                    <Text style={styles.textStyle}>Why</Text>
+                </Pressable>
+            </View>
+            )
+      }
+}
 
 const styles = StyleSheet.create({
     centeredView: {

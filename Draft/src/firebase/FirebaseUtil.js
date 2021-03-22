@@ -67,9 +67,7 @@ const firebaseUtil = {
             setJsonData({
               data: doc.data().data,
               refreshing:false
-            })
-
-          } else {
+            })          } else {
             alert("No such document!");
           }
         }).catch((error) => {
