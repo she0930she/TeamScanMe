@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         marginTop:100
     },
     row_odd: {
-        height:40,
+        height:60,
         display:"flex",
         flexDirection:"row",
         justifyContent:"space-evenly",
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         borderBottomColor:"white"
     },
     row_even: {
-        height:40,
+        height:60,
         display:"flex",
         flexDirection:"row",
         justifyContent:"space-evenly",
@@ -36,9 +36,12 @@ const styles = StyleSheet.create({
         padding:0
     },
     item_score: {
+        fontSize:16,
+        fontWeight:"bold",
         width:80,
         margin:0,
-        padding:0
+        padding:0,
+        paddingLeft:5
     },
     item_star: {
         width:150,
@@ -51,8 +54,8 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     image_camera: {
-        width:30,
-        height:30,
+        width:60,
+        height:60,
         resizeMode: 'contain'
     },
     header: {

@@ -4,10 +4,14 @@ import firebaseUtil from '../firebase/FirebaseUtil.js'
 import styles from "../css/styles.js"
 
 const Item = ({ detail, index }) => (
-    <View style={index%2 === 0? styles.row_odd: styles.row_even}>
-      <Text style={styles.item_pic}>
+    <View>
+        <TouchableOpacity style={index%2 === 0? styles.row_odd: styles.row_even}
+            onPress={({index})=>{
+                alert(index)
+            }}>
+        <Text style={styles.item_pic}>
           <Image style={styles.image_camera}
-                 source={require('../images/camera.png')}
+                 source={{uri: detail.image_url}}
           />
       </Text>
       <Text style={styles.item_score}>{detail.score}</Text>
@@ -21,6 +25,7 @@ const Item = ({ detail, index }) => (
                 )
             }
         </Text>
+        </TouchableOpacity>
     </View>
 );
 
