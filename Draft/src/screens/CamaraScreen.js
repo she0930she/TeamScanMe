@@ -6,11 +6,11 @@ import firebaseUtil from '../firebase/FirebaseUtil.js';
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 const captureSize = Math.floor(WINDOW_HEIGHT * 0.09);
 
-export default function CamaraScreen() {
+export default function CamaraScreen(props) {
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
   const [image, setImage] = useState();
-  const [isCameraReady, setIsCameraReady] = useState(false);
+  const [isCameraReady, setIsCameraReady] = useState(false);  
   const cameraRef = useRef();
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export default function CamaraScreen() {
             [
               { 
                 text: "View Results", 
-                onPress: () =>  {console.log('Results viewed')}
+                onPress: () => {props.navigation.navigate('Score')}
               },
               {
                 text: "Cancel",
