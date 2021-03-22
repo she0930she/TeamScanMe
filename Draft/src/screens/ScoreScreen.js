@@ -31,17 +31,33 @@ class ScoreScreen extends Component{
     return data[0].data[0].reason;
   }
 
+  getScoreView = () => {
+    if(this.props.route.params.history != null){
+      return(
+        <View>
+          <Image style={styles.image} source={{uri: this.props.route.params.history.image_url}}/>
+          <Text style={styles.headtextStyle}>Your Score is</Text>
+          <Text style={styles.scoreStyle}>{this.props.route.params.history.score}</Text>
+          <Text style={styles.bottomtextStyle}>out of 100</Text>
+          <ModalWhy reason={this.props.route.params.history.reason}/>
+        </View>
+      )
+    }else{
+      <View>
+          {this.getImageUrl()}
+          <Text style={styles.headtextStyle}>Your Score is</Text>
+          <Text style={styles.scoreStyle}>{this.getScore()}</Text>
+          <Text style={styles.bottomtextStyle}>out of 100</Text>
+          <ModalWhy reason={this.getReason()}/>
+      </View>
+    }
+  }
+
   render(){
     return(
       <View style={styles.container}>
         {this.state.data &&(
-          <View>
-            {this.getImageUrl()}
-            <Text style={styles.headtextStyle}>Your Score is</Text>
-            <Text style={styles.scoreStyle}>{this.getScore()}</Text>
-            <Text style={styles.bottomtextStyle}>out of 100</Text>
-            <ModalWhy reason={this.getReason()}/>
-          </View>
+          this.getScoreView()
         )}
       </View>
     )

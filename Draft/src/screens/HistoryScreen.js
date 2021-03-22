@@ -3,31 +3,7 @@ import { Text, Image, StyleSheet, View, FlatList, TouchableOpacity, SafeAreaView
 import firebaseUtil from '../firebase/FirebaseUtil.js'
 import styles from "../css/styles.js"
 
-const Item = ({ detail, index }) => (
-    <View>
-        <TouchableOpacity style={index%2 === 0? styles.row_odd: styles.row_even}
-            onPress={({index})=>{
-                alert(index)
-            }}>
-        <Text style={styles.item_pic}>
-          <Image style={styles.image_camera}
-                 source={{uri: detail.image_url}}
-          />
-      </Text>
-      <Text style={styles.item_score}>{detail.score}</Text>
-      <Text style={styles.item_star}>
-            {
-                detail.star.map(() => {
-                        return(<Image keyExtractor={index} style={styles.image_star}
-                            source={require('../images/star_filled.png')}
-                        />);
-                    }
-                )
-            }
-        </Text>
-        </TouchableOpacity>
-    </View>
-);
+
 
 // When using SectionList, renderItem use specific key "data" as item. 
 // So make sure the name in your object is named "data"
@@ -50,9 +26,44 @@ class HistoryView extends Component{
         firebaseUtil.getHistoryData(this.setState.bind(this), userID);
     }
 
+    getItem(detail, index){
+        return(
+            <View>
+                <TouchableOpacity style={index%2 === 0? styles.row_odd: styles.row_even}
+                        onPress={({index})=>{
+                            this.props.navigation.navigate('Score', {history: detail})
+                        }}>
+                    <Text style={styles.item_pic}>
+                            <Image style={styles.image_camera}
+                            source={{uri: detail.image_url}}
+                        />
+                    </Text>
+                    <Text style={styles.item_score}>{detail.score}</Text>
+                    <Text style={styles.item_star}>
+                    {
+                        detail.star.map(() => {
+                            return(<Image keyExtractor={index} style={styles.image_star}
+                                source={require('../images/star_filled.png')}
+                                />);
+                                }
+                            )
+                    }
+                    </Text>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+
     render(){
         return (
             <SafeAreaView style={styles.container}>
+                <View>
+                    <TouchableOpacity onPress={()=>{
+                            this.props.navigation.navigate('Score', { history: 'COol' })
+                        }}>
+                        <Text>CLICK</Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.title_container}>
                     <Text style={styles.title}>
                         Your Scan Records
@@ -65,7 +76,7 @@ class HistoryView extends Component{
                             sections={this.state.data}
                             keyExtractor={(item, index) => item + index}
                             renderItem={
-                                ({ item, index}) => <Item detail={item} index={index}/>
+                                ({ item, index}) => this.getItem(item, index)
                             }
                             renderSectionHeader={({ section: { date } }) => (
                                 <View style={styles.header}>
