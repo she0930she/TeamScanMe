@@ -37,15 +37,19 @@ export default function App() {
               iconName = focused
                 ? 'time'
                 : 'time-outline';
+                
             } 
 
             // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName} size={35} color={color} />;
           },
         })}
         tabBarOptions={{
           activeTintColor: '#47C1C1',
           inactiveTintColor: 'gray',
+          style: {
+            height: 100,
+          }
         }}>
         <Tab.Screen name="Score" component={ScoreScreen} />
         <Tab.Screen name="Camara" component={CamaraScreen} />

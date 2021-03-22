@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "#FAF4C8"
+
   },
   headtextStyle: {
-    paddingTop: 10,
+    paddingTop: 3,
     fontWeight: "bold",
     textAlign: "center",
     fontSize: 50,
@@ -91,6 +91,12 @@ const styles = StyleSheet.create({
     width: 280,
     height: 280
   },
+  header: {
+    fontWeight: "bold",
+    color: "tomato",
+    fontSize: 50,
+    paddingBottom: 10,
+  }
 
 });
 
