@@ -70,12 +70,12 @@ const styles = StyleSheet.create({
         elevation: 5
     },
     button: {
-        borderRadius: 20,
+        borderRadius: 25,
         padding: 10,
         // elevation: 2
     },
     buttonOpen: {
-        backgroundColor: "#F194FF",
+        backgroundColor: "#E65236",
     },
     buttonClose: {
         backgroundColor: "#2196F3",
@@ -91,7 +91,8 @@ const styles = StyleSheet.create({
         textAlign: "center"
     },
     whyStyle: {
-        margin: 80,
+        fontSize: 20,
+        // margin: 80,
     },
     closeStyle: {
         fontSize: 20,

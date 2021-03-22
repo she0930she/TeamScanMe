@@ -31,33 +31,16 @@ class ScoreScreen extends Component{
     return data[0].data[0].reason;
   }
 
-  getScoreView = () => {
-    if(this.props.route.params.history != null){
-      return(
-        <View>
-          <Image style={styles.image} source={{uri: this.props.route.params.history.image_url}}/>
-          <Text style={styles.headtextStyle}>Your Score is</Text>
-          <Text style={styles.scoreStyle}>{this.props.route.params.history.score}</Text>
-          <Text style={styles.bottomtextStyle}>out of 100</Text>
-          <ModalWhy reason={this.props.route.params.history.reason}/>
-        </View>
-      )
-    }else{
-      <View>
-          {this.getImageUrl()}
-          <Text style={styles.headtextStyle}>Your Score is</Text>
-          <Text style={styles.scoreStyle}>{this.getScore()}</Text>
-          <Text style={styles.bottomtextStyle}>out of 100</Text>
-          <ModalWhy reason={this.getReason()}/>
-      </View>
-    }
-  }
-
   render(){
     return(
       <View style={styles.container}>
         {this.state.data &&(
-          this.getScoreView()
+          <View>
+            {this.getImageUrl()}
+            <Text style={styles.headtextStyle}>Score</Text>
+            <Text style={styles.scoreStyle}>{this.getScore()}</Text>
+            <ModalWhy reason={this.getReason()}/>
+          </View>
         )}
       </View>
     )
@@ -67,28 +50,28 @@ class ScoreScreen extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
-    paddingBottom: 100,
+    padding: 70,
+    paddingLeft: 20,
+    paddingRight: 20,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: "#FAF4C8"
   },
   headtextStyle: {
-    paddingTop: 130,
-    fontSize: 20
-  },
-  bottomtextStyle: {
-    padding: 10,
-    fontSize: 20
+    paddingTop: 10,
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 50,
+    color: '#3D6061'
   },
   scoreStyle: {
-    paddingTop: 10,
-    fontSize: 100,
-    color: '#26FA02'
+    textAlign: "center",
+    fontSize: 120,
+    color: '#00BF20'
   },
   image: {
-    width: 200,
-    height: 200
+    width: 280,
+    height: 280
   },
 
 });
