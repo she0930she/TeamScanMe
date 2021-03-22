@@ -59,7 +59,12 @@ class ScoreScreen extends Component{
     return(
       <View style={styles.container}>
         {this.state.data &&(
-          this.getScoreView()
+          <View>
+            {this.getImageUrl()}
+            <Text style={styles.headtextStyle}>Score</Text>
+            <Text style={styles.scoreStyle}>{this.getScore()}</Text>
+            <ModalWhy reason={this.getReason()}/>
+          </View>
         )}
       </View>
     )
@@ -69,28 +74,28 @@ class ScoreScreen extends Component{
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 50,
-    paddingBottom: 100,
+    padding: 70,
+    paddingLeft: 20,
+    paddingRight: 20,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: "#FAF4C8"
   },
   headtextStyle: {
-    paddingTop: 130,
-    fontSize: 20
-  },
-  bottomtextStyle: {
-    padding: 10,
-    fontSize: 20
+    paddingTop: 10,
+    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 50,
+    color: '#3D6061'
   },
   scoreStyle: {
-    paddingTop: 10,
-    fontSize: 100,
-    color: '#26FA02'
+    textAlign: "center",
+    fontSize: 120,
+    color: '#00BF20'
   },
   image: {
-    width: 200,
-    height: 200
+    width: 280,
+    height: 280
   },
 
 });
