@@ -57,7 +57,7 @@ const firebaseUtil = {
             }
             let newProduct = {
               image_url:downloadURL,
-              reason:"",
+              reason:"Monosodium Glutamate: a flavor enhancer, has a reputation causing insatiable hunger. increase appetite. Cause us to eat too many calories in the form of junk food.",
               score: score,
               star:star
             };

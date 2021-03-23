@@ -46,7 +46,7 @@ export default function CamaraScreen(props) {
             [
               { 
                 text: "View Results", 
-                onPress: () => {props.navigation.navigate('Score')}
+                onPress: () => {props.navigation.navigate('Score',{history:""})}
               },
               {
                 text: "Cancel",

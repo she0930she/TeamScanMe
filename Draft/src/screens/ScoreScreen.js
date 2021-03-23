@@ -9,30 +9,19 @@ class ScoreScreen extends Component{
   constructor(props){
     super(props);
     this.state = {
-      // data:this.props.data.data
     }
     const userID = 'history';
     firebaseUtil.getHistoryData(this.setState.bind(this), userID);
-    this.props.navigation.addListener(
-      'didFocus',
-      payload => {
-        alert('didBlur');
-      }
-    );
   }
 
   componentDidMount() {
     this.props.navigation.addListener(
       'focus',
-      payload => {    
+      payload => {  
         firebaseUtil.getHistoryData(this.setState.bind(this), 'history');
       }
     );
   }
-
-  // componentWillUnmount() {
-  //   this._unsubscribe();
-  // }
 
   getImageUrl = () => {
     let data = this.state.data; 
@@ -55,7 +44,7 @@ class ScoreScreen extends Component{
   }
 
   getScoreView = () => {
-    if(this.props.route.params){
+    if(this.props.route.params && this.props.route.params.history !== ""){
       return(
         <View>
           <Image style={styles.image} source={{uri: this.props.route.params.history.image_url}}/>
@@ -77,7 +66,6 @@ class ScoreScreen extends Component{
   }
 
   render(){
-    const { isFocused } = this.props;
     return(
       <View style={styles.container}>
         {this.state.data &&(
@@ -89,19 +77,6 @@ class ScoreScreen extends Component{
 }
 
 export default ScoreScreen;
-
-// function(props) {
-//   const isFocused = useIsFocused();
-//   const [data, setData] = useState({});
-//   React.useEffect(() => {
-//     const unsubscribe = props.navigation.addListener('focus', () => {
-//       firebaseUtil.getHistoryData(setData.bind(this), "history");
-//       alert(JSON.stringify(data))
-//     });
-//     return unsubscribe;
-//   }, [props.navigation]);
-//   return <ScoreScreen {...props} data={data} isFocused={isFocused} />;
-// }
 
 const styles = StyleSheet.create({
   container: {
@@ -136,5 +111,4 @@ const styles = StyleSheet.create({
     fontSize: 50,
     paddingBottom: 10,
   }
-
 });
