@@ -22,20 +22,20 @@ class ModalWhy extends Component{
                         (!this.state.modalVisible);
                     }}
                 >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <View style={{ width: 300, height: 400 }}>
-                            <Text style={styles.headerStyle}>Detail:</Text>
-                            <Text style={styles.modalText}>{this.props.reason}</Text>
-                            <Pressable
-                                style={[styles.button, styles.buttonClose]}
-                                onPress={() => this.setState({modalVisible:!this.state.modalVisible})}
-                            >
-                            <Text style={styles.closeStyle}>close</Text>
-                            </Pressable>
+                    <View style={styles.centeredView}>
+                        <View style={{ width: "100%", height: "100%" }}>
+                            <View style={styles.modalView}>
+                                <Text style={styles.headerStyle}>DETAIL</Text>
+                                <Text style={styles.modalText}>{this.props.reason}</Text>
+                                <Pressable
+                                    style={[styles.button, styles.buttonClose]}
+                                    onPress={() => this.setState({modalVisible:!this.state.modalVisible})}
+                                >
+                                <Text style={styles.closeStyle}>X</Text>
+                                </Pressable>
+                            </View>
                         </View>
                     </View>
-                </View>
                 </Modal>
                 <Pressable
                     style={[styles.button, styles.buttonOpen, styles.whyStyle]}
@@ -56,10 +56,10 @@ const styles = StyleSheet.create({
         marginTop: 22
     },
     modalView: {
-        margin: 20,
-        backgroundColor: "#FAEBF2",
+        marginTop:517,
+        backgroundColor: "white",
         borderRadius: 20,
-        padding: 25,
+        padding: 20,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -79,7 +79,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#2196F3",
     },
     buttonClose: {
-        backgroundColor: "#2196F3",
+        borderColor:"#CCC4C6",
+        borderWidth:2,
+        borderRadius: 50,
+        width:40,
+        height:40,
+        padding: 0,
+        paddingTop:6
     },
     textStyle: {
         fontSize: 30,
@@ -89,7 +95,6 @@ const styles = StyleSheet.create({
     },
     modalText: {
         marginBottom: 15,
-        textAlign: "center"
     },
     whyStyle: {
         fontSize: 20,
@@ -97,9 +102,10 @@ const styles = StyleSheet.create({
     closeStyle: {
         fontSize: 20,
         textAlign: "center",
-        color: "white"
+        color: "#CCC4C6"
     },
     headerStyle: {
+        fontWeight:"bold",
         paddingBottom: 15,
         fontSize: 20,
     }

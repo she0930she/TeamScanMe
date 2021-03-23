@@ -101,9 +101,6 @@ const firebaseUtil = {
         }).catch((error) => {
           alert("Error getting document:", error);
         });
-
-        
-
     },
 
     saveJsonData: (id, jsondata) => {

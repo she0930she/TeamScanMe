@@ -4,6 +4,7 @@ import ModalWhy from "./ModalWhy"
 import firebaseUtil from '../firebase/FirebaseUtil.js'
 import { useIsFocused } from '@react-navigation/native';
 
+
 class ScoreScreen extends Component{
 
   constructor(props){
@@ -27,7 +28,9 @@ class ScoreScreen extends Component{
     let data = this.state.data; 
     let length = data[0].data.length-1;
     return(
-      <Image style={styles.image} source={{uri: data[0].data[length].image_url}}/>
+      <View style={styles.view_blurry}>
+        <Image style={styles.image} source={{uri: data[0].data[length].image_url}}/>
+      </View>
     );
   }
 
@@ -46,19 +49,23 @@ class ScoreScreen extends Component{
   getScoreView = () => {
     if(this.props.route.params && this.props.route.params.history !== ""){
       return(
-        <View>
-          <Image style={styles.image} source={{uri: this.props.route.params.history.image_url}}/>
-          <Text style={styles.headtextStyle}>Score</Text>
-          <Text style={styles.scoreStyle}>{this.props.route.params.history.score}</Text>
+        <View style={styles.center}>
+          <View style={styles.view_blurry}>
+            <Image style={styles.image} source={{uri: this.props.route.params.history.image_url}}/>
+          </View>
+          <View style={styles.scoreView}>
+            <Text style={styles.scoreStyle}>{this.props.route.params.history.score}</Text>
+          </View>
           <ModalWhy reason={this.props.route.params.history.reason}/>
         </View>
       )
     }else{
       return(
-        <View>
+        <View style={styles.center}>
             {this.getImageUrl()}
-            <Text style={styles.headtextStyle}>Score</Text>
-            <Text style={styles.scoreStyle}>{this.getScore()}</Text>
+            <View style={styles.scoreView}>
+              <Text style={styles.scoreStyle}>{this.getScore()}</Text>
+            </View>
             <ModalWhy reason={this.getReason()}/>
         </View>
       )
@@ -86,7 +93,11 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     justifyContent: 'center',
     alignItems: 'center',
-
+  },
+  center:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   headtextStyle: {
     paddingTop: 3,
@@ -95,20 +106,38 @@ const styles = StyleSheet.create({
     fontSize: 50,
     color: '#3D6061'
   },
+  scoreView: {
+    justifyContent:"center",
+    width:170,
+    height:170,
+    borderWidth:5,
+    borderTopColor:"orange",
+    borderLeftColor:"orange",
+    borderRightColor:"orange",
+    borderBottomColor:"#F2EBB8",
+    borderRadius:100,
+    marginTop:50
+  },
   scoreStyle: {
     textAlign: "center",
-    fontSize: 120,
+    fontSize: 100,
     fontWeight:"bold",
     color: '#00BF20'
   },
   image: {
-    width: 280,
-    height: 280
+    width: 300,
+    height: 300,
   },
   header: {
     fontWeight: "bold",
     color: "tomato",
     fontSize: 50,
     paddingBottom: 10,
+  },
+  view_blurry: {
+    shadowColor: '#000',
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 2,
   }
 });
