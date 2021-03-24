@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { firebase } from './config';
+import {Alert} from "react-native";
 
 // run yarn add firebase (if you are not using yarn, try npm)
 // if you encounter the problem "Tried to register two views in the same name RNCSafeAreaProvider"
@@ -92,7 +93,7 @@ const firebaseUtil = {
               .doc("history")
               .set({data:data})
               .then(() => {
-                alert('Success!');
+                Alert.alert('Score Calculated!');
               });
 
           } else {

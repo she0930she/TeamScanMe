@@ -31,7 +31,9 @@ export default function CamaraScreen(props) {
         const source = data.uri;
         if (!source.cancelled) {
           uploadImage(source)
-          redirectScore();
+          setTimeout(() => {
+            redirectScore(); 
+            }, 5500); 
         }
       }
     };
