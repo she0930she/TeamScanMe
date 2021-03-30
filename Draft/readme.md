@@ -13,6 +13,7 @@
 After running npm start, it pops up a QRcode either in a Brower or commandline.
 
 # Download Expo Go in Apple Store
+https://apps.apple.com/tw/app/expo-go/id982107779
 Currently, our development environment only includes IOS. 
 
 # Scan the QR code and open the app in Expo Go
