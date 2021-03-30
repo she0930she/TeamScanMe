@@ -10,6 +10,8 @@
 # Then run
 :npm start
 
+After running npm start, it pops up a QRcode either in a Brower or commandline.
+
 # Download Expo Go in Apple Store
 Currently, our development environment only includes IOS. 
 
