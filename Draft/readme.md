@@ -11,9 +11,10 @@
 :npm start
 
 # Download Expo Go in Apple Store
-<br/>
+Currently, our development environment only includes IOS. 
 
 # Scan the QR code and open the app in Expo Go
+Turn on any camera that is able to scan QR code, it will redirect and open the link in Expo GO. 
 
 <br/>
 <br/>
