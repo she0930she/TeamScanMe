@@ -10,7 +10,9 @@
 # Then run
 :npm start
 
-# Use a mobile device to scan the bar code either on commandline or browser, and boom, you are good to go.
+# Download Expo Go in Apple Store
+
+# Scan the QR code and open the app in Expo Go
 
 <br/>
 <br/>
@@ -19,7 +21,8 @@
 
 **Note:please make sure the wifi domain of your laptop and mobile are the same**<br/>
 
-if you encounter problem, check the reference below:
+if you encounter problem, check the reference below
+
 npm: https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
 
 firebase: https://firebase.google.com/community
