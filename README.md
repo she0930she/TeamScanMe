@@ -1,14 +1,14 @@
 # TeamScanMe
 Welcome to the Scan Me app! The app is designed to target the United Nations Health and Well-being Sustainable Development Goal. 
 
-###1. The problems we are looking to solve:
+### 1. The problems we are looking to solve:
 1. When we are buying groceries, skincare items, food products in our favorite stores, we do not identify which products are healthy or include ingredients that are good for our well-being. 
 
 2. Making decision based on reading or googling the ingredients list on every item is too time consuming and can be too confusing for the buyer.
 
 3. Many products look the same to us and subtle differences in the chemicals/preservatives used can be difficult to understand immediately.
 
-###2. How do we solve the problems?
+### 2. How do we solve the problems?
 
 With this idea implemented, we want to analyze ingredients from food or any items with material lists. Helping shoppers make the healthier decision every time they use our app.
 
@@ -20,7 +20,7 @@ ScanMe has a total of three screens:
 
 3. History Screen: This screen comprises of all the records that includes all the scanned items sorted by descending dates and the respective scores. The scores are computed and stored within Google Firebase Firestore Database within JSON components. The history contains not only the scores but also the one main reason why the score was assigned and corresponding star rating of the product.
 
-###3. What does the app look like?
+### 3. What does the app look like?
 
 Here is the detailed description of how to use the app:
 
