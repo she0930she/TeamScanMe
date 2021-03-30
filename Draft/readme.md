@@ -1,16 +1,16 @@
-<h5>Clone the project to your work space
+**Clone the project to your work space**<br/>
 :git clone https://github.com/she0930she/TeamScanMe.git
 
-<h5>Go into the Draft directory in the porject TeamScanMe
+**Go into the Draft directory in the porject TeamScanMe**<br/>
 :cd TeamScanMe/Draft
 
-<h5>Inside the Draft folder run
+**Inside the Draft folder run**<br/>
 :npm install
 
-<h5>Then run
+**Then run**<br/>
 :npm start
 
-<h5>Note:please make sure the wifi domain of your laptop and mobile are the same
+**Note:please make sure the wifi domain of your laptop and mobile are the same**<br/>
 
 if you encounter problem, check the reference below:
 npm: https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
