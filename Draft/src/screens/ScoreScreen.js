@@ -88,7 +88,7 @@ export default ScoreScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 70,
+    padding: 60,
     paddingLeft: 20,
     paddingRight: 20,
     justifyContent: 'center',
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     borderRightColor:"orange",
     borderBottomColor:"#F2EBB8",
     borderRadius:100,
-    marginTop:50
+    marginTop:30
   },
   scoreStyle: {
     textAlign: "center",
