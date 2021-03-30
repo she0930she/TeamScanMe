@@ -15,7 +15,7 @@ And if you are interested to know why you get the score lower or higher than you
 You would want to click the blue button. The button here will tell you one critical reason why you receive this score for this item. 
 The whole idea is we want to simplify the information for users. 
 We found that if you care about your health, the professional terms from ingredients lists usually overwhelms public.
-And the thing is we don’t have time to type each ingredient or material individually on the internet just for this one item.
+And the thing is we don’t have time to type each ingredient individually on the internet just for this one item.
 
 After we have the current score. We might want to see the previous scores. Click history on the bottom navigation bar here. This is cute!
 Simply refresh the page. Then, you get the picture you just took! If you want to know the detail.
