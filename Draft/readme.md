@@ -11,6 +11,7 @@
 :npm start
 
 # Download Expo Go in Apple Store
+<br/>
 
 # Scan the QR code and open the app in Expo Go
 
