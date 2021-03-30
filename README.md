@@ -17,7 +17,7 @@ The whole idea is we want to simplify the information for users.
 We found that if you care about your health, the professional terms from ingredients lists usually overwhelms public.
 And the thing is we don’t have time to type each ingredient individually on the internet just for this one item.
 
-After we have the current score. We might want to see the previous scores. Click history on the bottom navigation bar here. This is cute!
+After we have the current score. We might want to see the previous scores. Click history on the bottom navigation bar here. 
 Simply refresh the page. Then, you get the picture you just took! If you want to know the detail.
 Simply click the picture or the score. This will bring you back to the score screen to see detail information.
 This app is easy to use, and a reliable partner when you are of two minds.
