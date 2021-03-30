@@ -10,6 +10,11 @@
 **Then run**<br/>
 :npm start
 
+**Use a mobile device to scan the bar code either on commandline or browser, and boom, you are good to go.**<br/>
+
+
+
+
 **Note:please make sure the wifi domain of your laptop and mobile are the same**<br/>
 
 if you encounter problem, check the reference below:
