@@ -1,11 +1,29 @@
 # TeamScanMe
-Let me introduce a new app.
-It’s called ScanMe. This will hit UN target for Health and Well-being.
-We want to solve problems like when we go to grocery shopping, We don’t know which one to buy. 
-They looked exactly the same for us. So we come up with this app, we want to analyze ingredients from food or any items with material lists.
-So we can help shoppers make the decision.
+Welcome to the Scan Me app! The app is designed to target the United Nations Health and Well-being Sustainable Development Goal. 
 
-ScanMe is really easy to use. 
+### The problems we are looking to solve:
+1. When we are buying groceries, skincare items, food products in our favorite stores, we do not identify which products are healthy or include ingredients that are good for our well-being. 
+
+2. Making decision based on reading or googling the ingredients list on every item is too time consuming and can be too confusing for the buyer.
+
+3. Many products look the same to us and subtle differences in the chemicals/preservatives used can be difficult to understand immediately.
+
+### How do we solve the problems?
+
+With this idea implemented, we want to analyze ingredients from food or any items with material lists. Helping shoppers make the healthier decision every time they use our app.
+
+ScanMe has a total of three screens: 
+
+1. Score Screen: This screen has the calculated scores displayed as a number and a detailed explanation of the reasons which were used to generate the score results.
+
+2. Camera Screen: This screen has the functionality to scan the products and capture all the elements in the ingredients list. Usually the outside label includes all the materials used to make a certain product. In the future iteration of the Scan Me App, all the text objects detected using Google Cloud Vision API will be stored in an array within firebase and retrieved on the score screen. 
+
+3. History Screen: This screen comprises of all the records that includes all the scanned items sorted by descending dates and the respective scores. The scores are computed and stored within Google Firebase Firestore Database within JSON components. The history contains not only the scores but also the one main reason why the score was assigned and corresponding star rating of the product.
+
+### What does the app look like?
+
+Here is the detailed description of how to use the app:
+
 First, we grab the item. We have a Doritos here. Take a picture! You get an alert says “score Calculated”. 
 You click view, then this will direct us to the ScoreScreen. You would see the picture you took on the top, 
 then our system analyze the nutrition facts from the picture you just took.
