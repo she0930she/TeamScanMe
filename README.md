@@ -1,7 +1,7 @@
 # TeamScanMe
 Welcome to the Scan Me app! The app is designed to target the United Nations Health and Well-being Sustainable Development Goal. 
 
-### 1. The problems we are looking to solve:
+## The problems we are looking to solve:
 
 While brainstorming the idea for our app, we related to three problems that we believe any buyer faces while going shopping. The problems are as follows:
 
@@ -11,7 +11,7 @@ While brainstorming the idea for our app, we related to three problems that we b
 
 3. Many products look the same to us and subtle differences in the chemicals/preservatives used can be difficult to understand immediately.
 
-### 2. How do we solve the problems?
+## How do we solve the problems?
 
 With this idea implemented, we want to analyze ingredients from food or any items with material lists. Helping shoppers make the healthier decision every time they use our app.
 
@@ -23,9 +23,45 @@ ScanMe has a total of three screens:
 
 3. History Screen: This screen comprises of all the records that includes all the scanned items sorted by descending dates and the respective scores. The scores are computed and stored within Google Firebase Firestore Database within JSON components. The history contains not only the scores but also the one main reason why the score was assigned and corresponding star rating of the product.
 
-### 3. What does the app look like?
 
-Here is the detailed description of how to use the app:
+## How do I run the app?
+
+# 1. Clone the project to your work space
+:git clone https://github.com/she0930she/TeamScanMe.git
+
+# 2. Go into the Draft directory in the project TeamScanMe
+:cd TeamScanMe/Draft
+
+# 3. Inside the Draft folder run
+:npm install
+
+# 4. Then run
+:npm start
+
+After running npm start, it pops up a QRcode either in a Brower or commandline.
+
+# 5. Download Expo Go in Apple Store
+https://apps.apple.com/app/expo-go/id982107779 <br>
+Currently, our development environment only includes IOS. 
+
+
+# 6. Scan the QR code and open the app in Expo Go
+Turn on any camera that is able to scan QR code, it will redirect and open the link in Expo GO. 
+
+
+**Note:please make sure the wifi domain of your laptop and mobile are the same**<br/>
+
+if you encounter problem, check the reference below
+
+npm: https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally
+
+firebase: https://firebase.google.com/community
+
+expo: https://forums.expo.io/
+
+## What does the app look like?
+
+Here is the detailed description of how to use the app and how the functions work with each other:
 
 First, we grab the item. We have a Doritos here. Take a picture! You get an alert says “score Calculated”. 
 You click view, then this will direct us to the ScoreScreen. You would see the picture you took on the top, 
