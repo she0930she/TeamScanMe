@@ -6,7 +6,7 @@ import firebaseUtil from '../firebase/FirebaseUtil.js';
 const WINDOW_HEIGHT = Dimensions.get("window").height;
 const captureSize = Math.floor(WINDOW_HEIGHT * 0.09);
 
-export default function CamaraScreen(props) {
+export default function CameraScreen(props) {
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
   const [image, setImage] = useState();

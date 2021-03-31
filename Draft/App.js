@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ScoreScreen from "./src/screens/ScoreScreen";
-import CamaraScreen from "./src/screens/CamaraScreen";
+import CameraScreen from "./src/screens/CameraScreen";
 import WhyScreen from './src/screens/WhyScreen.js';
 import HistoryScreen from "./src/screens/HistoryScreen.js";
 
@@ -27,7 +27,7 @@ export default function App() {
                 : 'ios-information-circle-outline';
             }
             
-            if (route.name === 'Camara') {
+            if (route.name === 'Camera') {
               iconName = focused
                 ? 'ios-camera'
                 : 'ios-camera-outline';
@@ -52,7 +52,7 @@ export default function App() {
           }
         }}>
         <Tab.Screen name="Score" component={ScoreScreen} />
-        <Tab.Screen name="Camara" component={CamaraScreen} />
+        <Tab.Screen name="Camera" component={CameraScreen} />
         <Tab.Screen name="History" component={HistoryScreen} />
       </Tab.Navigator>
     </NavigationContainer>
