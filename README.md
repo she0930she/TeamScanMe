@@ -2,6 +2,9 @@
 Welcome to the Scan Me app! The app is designed to target the United Nations Health and Well-being Sustainable Development Goal. 
 
 ### 1. The problems we are looking to solve:
+
+While brainstorming the idea for our app, we related to three problems that we believe any buyer faces while going shopping. The problems are as follows:
+
 1. When we are buying groceries, skincare items, food products in our favorite stores, we do not identify which products are healthy or include ingredients that are good for our well-being. 
 
 2. Making decision based on reading or googling the ingredients list on every item is too time consuming and can be too confusing for the buyer.
